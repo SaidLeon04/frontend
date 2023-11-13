@@ -23,7 +23,7 @@ function primary(email, nombre, telefono){
                 console.log("response: " + response);
                 console.log("json: " + json);
                 console.log("status_code: " + request2.status);
-                window.location.href = "../templates/index.html";
+                window.location.href = "https://frontentapi-de4686146bd2.herokuapp.com";
             }
         }else{
             alert("Email ya registrado")
