@@ -9,7 +9,7 @@ function borrar(email){
         request.send();
         request.onload = () => {
             const response = request.responseText;
-            window.location.href = "../templates/index.html"
+            window.location.href = "https://frontentapi-de4686146bd2.herokuapp.com";
         }
     }else{
         console.log("El usuario ha cancelado.");

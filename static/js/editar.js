@@ -18,7 +18,7 @@ function editar(email, nombre, telefono){
             const json = JSON.parse(response);
             console.log(json);
             console.log("status_code: " + request.status);
-            window.location.href = "../templates/index.html"
+            window.location.href = "https://frontentapi-de4686146bd2.herokuapp.com";
         }
     }else{ 
         console.log("El usuario ha cancelado.");
