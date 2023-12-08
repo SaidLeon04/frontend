@@ -1,26 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
+<html>
     <head>
-        <title>Contactos</title>
-        <script type="text/javascript" src="../static/js/get_all.js"></script>
-        <link rel="stylesheet" href="../static/css/global.css">
+        <title>Log In</title>
     </head>
-
     <body>
-        <a href="buscar.html">Buscar</a>
-        <a href="insertar.html">Insertar</a>
-        <table border="1" id="table_contactos">
-            <thead id="thead_contactos">
-                <th><h5>Email</h5></th>
-                <th><h5>Nombre</h5></th>
-                <th><h5>Telefono</h5></th>
-                <th colspan="3">Opciones</th>
-            </thead>
-            <tbody id="tbody_contactos">
-            </tbody>
-        </table>
-        <script>
-            document.body.onload = getAll();
-        </script>
+        <script src="../static/js/login.js"></script>
+        <h1>Log In</h1>
+            <input type="text" name="username" placeholder="Correo" required id="username">
+            <input type="password" name="password" placeholder="Contraseña" required id="passwd">
+            <button onclick="login(document.getElementById('username').value, document.getElementById('passwd').value)">Log In</button>
     </body>
 </html>

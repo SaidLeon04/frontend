@@ -3,12 +3,15 @@ from flask import render_template
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def index():
-    message = "Hello, World"
-    return render_template('index.html', message=message)
+    return render_template('index.html')
 
-@app.route("/buscar.html",methods=["GET","POST"])
+@app.route("/templates/todos.html", method=["GET"])
+def todos():
+    return render_template('todos.html')
+
+@app.route("/templates/buscar.html",methods=["GET","POST"])
 def buscar():
     return render_template('buscar.html')
 
