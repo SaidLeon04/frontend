@@ -52,7 +52,8 @@ function insert(email, nombre, telefono) {
             }
         })
         .catch(error => {
-            alert("Error al verificar el email");
+            alert("Token no valido");
+            sessionStorage.clear();
             window.location.href = "http://localhost:8080/templates/index.html";
         });
     } else {

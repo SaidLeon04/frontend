@@ -51,7 +51,8 @@ function borrar_data(email){
       })
       .catch(error => {
         alert("No autorizado");
-        //window.location.href = "http://localhost:8080/templates/index.html";
+        sessionStorage.clear();
+        window.location.href = "http://localhost:8080/templates/index.html";
       });
     } else {
       console.log('No se encontró un token.');

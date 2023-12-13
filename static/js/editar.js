@@ -1,10 +1,6 @@
 function editar(email, nombre, telefono) {
     const token = urlParams.get('token');
     sessionStorage.setItem('token', token);
-    console.log(token);
-    console.log(email);
-    console.log(nombre);
-    console.log(telefono);
     if (confirm("Actualizar contacto?")) {
         var request = new XMLHttpRequest();
         request.open('PUT', "http://localhost:8000/contactos/" + email);

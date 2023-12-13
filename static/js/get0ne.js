@@ -48,6 +48,7 @@ function get_one(email) {
     })
     .catch(error => {
         alert("No autorizado");
+        sessionStorage.clear();
         window.location.href = "http://localhost:8080/templates/index.html";
     });
     }else{

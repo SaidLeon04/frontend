@@ -3,6 +3,7 @@
     <head>
         <title>Contactos</title>
         <script type="text/javascript" src="../static/js/get_all.js"></script>
+        <script type="text/javascript" src="../static/js/logout.js"></script>
         <link rel="stylesheet" href="../static/css/global.css">
     </head>
     <body>
@@ -27,5 +28,7 @@
             url2.href = "insertar.html?token=" + token;
             document.body.onload = getAll();
         </script>
+
+        <button onclick="logout()">Logout</button>
     </body>
 </html>
