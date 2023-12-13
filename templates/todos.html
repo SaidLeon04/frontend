@@ -5,10 +5,9 @@
         <script type="text/javascript" src="../static/js/get_all.js"></script>
         <link rel="stylesheet" href="../static/css/global.css">
     </head>
-
     <body>
-        <a href="buscar.html">Buscar</a>
-        <a href="insertar.html">Insertar</a>
+        <a href="buscar.html" id="url">Buscar</a>
+        <a href="insertar.html" id="url2">Insertar</a>
         <table border="1" id="table_contactos">
             <thead id="thead_contactos">
                 <th><h5>Email</h5></th>
@@ -20,6 +19,12 @@
             </tbody>
         </table>
         <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token');
+            url = document.getElementById("url")
+            url2 = document.getElementById("url2")
+            url.href = "buscar.html?token=" + token;
+            url2.href = "insertar.html?token=" + token;
             document.body.onload = getAll();
         </script>
     </body>

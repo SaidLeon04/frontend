@@ -16,11 +16,11 @@ function login(username, passwd){
         }
     })
     .then(data => {
-        // Manejar la respuesta, por ejemplo, guardar el token en una variable de sesión
         sessionStorage.setItem('token', data.token);
-        // Redirigir a otra página o realizar acciones necesarias después de iniciar sesión
         console.log('Inicio de sesión exitoso. Token:', data.token);
-        window.location.href = "https://frontentapi-de4686146bd2.herokuapp.com";
+        window.location.href = "http://localhost:8080/templates/todos.html?token="+data.token;
+        //window.location.href = "http://localhost:8080/templates/todos.html"
+        //window.location.href = "https://frontentapi-de4686146bd2.herokuapp.com/?token="+data.token;
     })
     .catch(error => {
         alert(error.message);

@@ -1,6 +1,6 @@
 function primary(email, nombre, telefono){
-    //const URL = "http://localhost:8000/contactos";
-    const URL = "https://heroku-python-3act-62ad9044fdb9.herokuapp.com/contactos"
+    const URL = "http://localhost:8000/contactos";
+    // const URL = "https://heroku-python-3act-62ad9044fdb9.herokuapp.com/contactos"
     var request = new XMLHttpRequest;
     request.open('GET',URL +"/" +email,true);
     request.send();

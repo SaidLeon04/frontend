@@ -1,17 +1,28 @@
 function borrar(email){
-    respuesta = confirm("¿Estas seguro de borrar el contacto?");
+    confirmacion = confirm("¿Estás seguro de que quieres borrar el usuario " + email + "?");
+    if (confirmacion) {
 
-    if (respuesta){
-        // const URL = "http://localhost:8000/contactos";
-        const URL = "https://heroku-python-3act-62ad9044fdb9.herokuapp.com/contactos"
-        var request = new XMLHttpRequest;
-        request.open('DELETE',URL +"/" +email,true);
-        request.send();
-        request.onload = () => {
-            const response = request.responseText;
-            window.location.href = "https://frontentapi-de4686146bd2.herokuapp.com";
+        const token = sessionStorage.getItem('token');
+        console.log(email)
+        console.log(token)
+        var requestToken = new XMLHttpRequest();
+        requestToken.open('GET', 'http://localhost:8000/contactos/' + email);
+        requestToken.setRequestHeader('Authorization', 'Bearer ' + token);
+        requestToken.send();
+
+        requestToken.onload = () => {
+            if (requestToken.status === 200) {
+                console.log('token válido')
+                var request = new XMLHttpRequest();
+                request.open('DELETE', "http://localhost:8000/contactos/" + email);
+                request.setRequestHeader('Authorization', 'Bearer ' + token);
+                request.send();
+                alert('Contacto borrado correctamente')
+                window.location.href = 'http://localhost:8080/templates/todos.html?token=' + token;
+            }else{
+                alert('Token inválido, inicia sesión de nuevo')
+                window.location.href = 'http://localhost:8080/login';
+            }
         }
-    }else{
-        console.log("El usuario ha cancelado.");
     }
 }

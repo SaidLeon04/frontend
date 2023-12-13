@@ -1,26 +1,27 @@
-function editar(email, nombre, telefono){
-    var respuesta = confirm("¿Estas seguro de actualizar el contacto?");
-
-    if (respuesta){
-        const URL = "https://heroku-python-3act-62ad9044fdb9.herokuapp.com/contactos"
-        //const URL = "http://localhost:8000/contactos";
-        var request = new XMLHttpRequest;
-        request.open('PUT',URL +"/" +email,true);
+function editar(email, nombre, telefono) {
+    const token = urlParams.get('token');
+    sessionStorage.setItem('token', token);
+    console.log(token);
+    console.log(email);
+    console.log(nombre);
+    console.log(telefono);
+    if (confirm("Actualizar contacto?")) {
+        var request = new XMLHttpRequest();
+        request.open('PUT', "http://localhost:8000/contactos/" + email);
+        request.setRequestHeader('Authorization', 'Bearer ' + token);
         request.setRequestHeader("Content-Type", "application/json");
-        data = JSON.stringify( {
-            "email": email,
-            "nombre": nombre,
-            "telefono": telefono})
-        request.send(data)
+
+        var updatedData = {
+            email: email,
+            nombre: nombre,
+            telefono: telefono
+        };
+
+        request.send(JSON.stringify(updatedData));
 
         request.onload = (e) => {
-            const response = request.responseText;
-            const json = JSON.parse(response);
-            console.log(json);
-            console.log("status_code: " + request.status);
-            window.location.href = "https://frontentapi-de4686146bd2.herokuapp.com";
-        }
-    }else{ 
-        console.log("El usuario ha cancelado.");
+            alert("Contacto actualizado exitosamente");
+            window.location.href = 'http://localhost:8080/templates/todos.html?token=' + token;
+        };
     }
 }
